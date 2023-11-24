@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student View</title>
+  <link rel="stylesheet" type="text/css" href="../../css/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../../css/font/css/all.min.css">
+  <!-- <script src="js/main.js" defer></script> -->
+  <style>
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-primary text-white p-3 d-flex justify-content-between">
+    <div class="brand-name d-flex">
+      <img src="../../images/state.jpeg" width="30" height="30" style="border-radius: 100%;" alt="Logo">
+      <h4 class="mx-2">E-Logbook</h4>
+    </div>
+    <div class="button-group">
+      <button class="home btn btn-light"><a href="/student-dashboard/<%= message.student._id %>">Home</a> <i
+          class="fas fa-home"></i></button>
+      <button class="logbook btn btn-light"><a href="/fill-logbook/<%= message.student._id %>">Fill logbook</a> <i
+          class="fas fa-book"></i></button>
+      <button class="logbook btn btn-light"><a href="/student-inbox/<%= message.student._id %>">Go back</a> <i
+          class="fas fa-arrow-left"></i></button>
+    </div>
+  </div>
+  <div class="container my-2">
+    <h3>Message from: <%= message.supervisor.fullname %>
+    </h3>
+    <hr class="hr">
+  </div>
+  <div class="container my-4">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <img src="../../images/default.png" class="card-img" height="300" alt="image">
+            <p><b>Full name</b>: <%= message.supervisor.fullname %>
+            </p>
+            <p><b>Location</b>: <%= message.supervisor.location %>
+            </p>
+            <p><b>Lecturer</b>: <%= message.supervisor.lecturer %>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-column justify-content-between col-md-8 border">
+        <div class="p-3">
+          <h3>
+            <%= message.title %>
+          </h3>
+          <p>
+            <%= message.content %>
+          </p>
+        </div>
+        <div class="p-3">
+          <p><b>Sent Date</b>: <%= new Date(message.createdAt) %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

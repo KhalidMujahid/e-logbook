@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Student send message</title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/font/css/all.min.css">
+	<!-- <script src="js/main.js" defer></script> -->
+	<style>
+		a {
+			text-decoration: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="bg-primary text-white p-3 d-flex justify-content-between">
+		<div class="brand-name d-flex">
+			<img src="../images/state.jpeg" width="30" height="30" style="border-radius: 100%;" alt="Logo">
+			<h4 class="mx-2">E-Logbook</h4>
+		</div>
+		<div class="button-group">
+			<button class="home btn btn-light"><a href="/student-dashboard/<%= student._id %>">Home</a> <i
+					class="fas fa-home"></i></button>
+			<button class="logbook btn btn-light"><a href="/fill-logbook/<%= student._id %>">Fill logbook</a> <i
+					class="fas fa-book"></i></button>
+			<button class="logout btn btn-light"><a href="/">Logout</a> <i class="fas fa-power-off"></i></button>
+		</div>
+	</div>
+	<% if(error){%>
+		<div class="alert alert-danger container my-3 p-4">
+			<p>
+				<%= error %>
+			</p>
+		</div>
+		<%}%>
+			<div class="container my-2 border p-5">
+				<div class="my-3">
+					<h4>Send message</h4>
+				</div>
+				<form action="/message" method="post">
+					<div>
+						<div class="form-group">
+							<legend>From:</legend>
+							<input name="reg_number" value="<%= student.reg_number %>" class="form-control" readonly />
+						</div>
+						<div class="form-group mt-3">
+							<legend>To:</legend>
+							<select class="form-select" name="supervisor_id">
+								<option>-------Select-------</option>
+								<option value="<%= student.supervisor._id %>">
+									<%= student.supervisor.fullname %>
+								</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<legend>Title:</legend>
+							<input name="title" placeholder="Title" class="form-control" />
+						</div>
+						<div class="form-group mt-3">
+							<legend>Message:</legend>
+							<textarea class="form-control" name="message"></textarea>
+						</div>
+						<div class="button-group mt-3">
+							<button type="submit" class="btn btn-success">Send message <i class="fas fa-paper-plane"></i></button>
+						</div>
+					</div>
+				</form>
+			</div>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Student | Admin Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/font/css/all.min.css">
+  <style>
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-primary align-items-center text-white p-3 d-flex justify-content-between">
+    <div class="brand-name d-flex">
+      <img src="../images/state.jpeg" width="30" height="30" style="border-radius: 100%;" alt="Logo">
+      <h4>Admin Dashboard</h4>
+    </div>
+    <div class="button-group">
+      <button class="btn btn-light"><a href="/admin-dashboard" class="text-primary">Home</a><i
+          class="fas fa-home"></i></button>
+      <button class="btn btn-light"><a href="/register/supervisor" class="text-primary">Register Supervisor</a> <i
+          class="fas fa-user"></i></button>
+      <button class="btn btn-light"><a href="/admin/placement" class="text-primary">Placement</a> <i
+          class="fas fa-map"></i></button>
+      <button class="btn btn-light"><a href="/admin/inbox" class="text-primary">Inbox</a> <i
+          class="fas fa-inbox"></i></button>
+    </div>
+  </div>
+  <div class="container my-5 w-50">
+    <form action="/student" method="post" class="border p-4">
+      <div class="my-3">
+        <h3>Register Student Form</h3>
+      </div>
+      <% if(error) {%>
+        <div class="alert alert-danger">
+          <p>
+            <%= error %>
+          </p>
+        </div>
+        <%}%>
+          <div class="form-group mt-3">
+            <input type="text" class="form-control" name="fullname" placeholder="Full name">
+          </div>
+          <div class="form-group mt-3">
+            <input type="text" class="form-control" name="matnumber" placeholder="Matric number">
+          </div>
+          <div class="form-group mt-3">
+            <select name="departement" class="form-select">
+              <option>Departement</option>
+              <option value="Computer science">Computer science</option>
+              <option value="Mass communication">Mass communication</option>
+              <option value="Office technology management">Office technology management</option>
+              <option value="Food and nutrition">Food and nutrition</option>
+            </select>
+          </div>
+          <div class="form-group mt-3">
+            <select name="level" class="form-select">
+              <option>Level</option>
+              <option value="ND I">ND I</option>
+              <option value="ND II">ND II</option>
+              <option value="HND I">HND I</option>
+              <option value="HND II">HND II</option>
+            </select>
+          </div>
+          <div class="form-group mt-3">
+            <input type="text" name="program" class="form-control" placeholder="Program">
+          </div>
+          <div class="button-group mt-3">
+            <button type="submit" class="btn btn-success">Save <i class="fas fa-save"></i></button>
+          </div>
+    </form>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supervisor View Inbox | Admin Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="../../css/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../../css/font/css/all.min.css">
+  <style>
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-primary align-items-center text-white p-3 d-flex justify-content-between">
+    <div class="brand-name d-flex">
+      <img src="../../images/state.jpeg" width="30" height="30" style="border-radius: 100%;" alt="Logo">
+      <h4>Supervisor Dashboard</h4>
+    </div>
+    <div class="button-group">
+      <button class="btn btn-light"><a href="/supervisor/inbox/<%= message.supervisor._id %>" class="text-primary">Go
+          Back</a><i class="fas fa-arrow-left"></i></button>
+    </div>
+  </div>
+  <div class="container my-2">
+    <h3>Message from: <%= message.student.fullname %>
+    </h3>
+    <hr class="hr">
+  </div>
+  <div class="container my-4">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <img src="../../images/<%= message.student.profle_image %>" class="card-img" height="300" alt="image">
+            <p><b>Full name</b>: <%= message.student.fullname %>
+            </p>
+            <p><b>Level</b>: <%= message.student.level %>
+            </p>
+            <p><b>Departement</b>: <%= message.student.departement %>
+            </p>
+            <p><b>Supervisor name</b>: <%= message.supervisor.fullname %>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-column justify-content-between col-md-8 border">
+        <div class="p-3">
+          <h3>
+            <%= message.title %>
+          </h3>
+          <p>
+            <%= message.content %>
+          </p>
+        </div>
+        <div class="p-3">
+          <p><b>Sent Date</b>: <%= new Date(message.createdAt) %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

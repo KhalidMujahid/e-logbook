@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inbox | Admin Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/font/css/all.min.css">
+  <style>
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-primary align-items-center text-white p-3 d-flex justify-content-between">
+    <div class="brand-name d-flex">
+      <img src="../images/state.jpeg" width="30" height="30" style="border-radius: 100%;" alt="Logo">
+      <h4>Admin Dashboard</h4>
+    </div>
+    <div class="button-group">
+      <button class="btn btn-light"><a href="/admin-dashboard" class="text-primary">Home</a><i
+          class="fas fa-home"></i></button>
+      <button class="btn btn-light"><a href="/register/student" class="text-primary">Register Student</a> <i
+          class="fas fa-user"></i></button>
+      <button class="btn btn-light"><a href="/register/supervisor" class="text-primary">Register Supervisor</a> <i
+          class="fas fa-user"></i></button>
+      <button class="btn btn-light"><a href="/admin/placement" class="text-primary">Placement</a> <i
+          class="fas fa-map"></i></button>
+    </div>
+  </div>
+  <div class="w-50 container my-2">
+    <h3>Inbox(<%= messages.length %>)</h3>
+    <hr class="hr">
+  </div>
+  <div class="my-3">
+    <% messages.forEach(message=> {%>
+      <div class="w-50 container">
+        <div class="d-flex align-items-center border">
+          <div>
+            <img width="80" style="object-fit: cover;" height="80" src="../images/<%= message.student.profle_image %>"
+              alt="image">
+          </div>
+          <div class="mx-2">
+            <div>
+              <p><b><a href="/admin/inbox/<%= message._id %>">
+                    <%= message.student.fullname %>
+                  </a></b></p>
+            </div>
+            <div>
+              <p>
+                <%= message.content %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%})%>
+  </div>
+</body>
+
+</html>

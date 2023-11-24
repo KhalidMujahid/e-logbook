@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Supervisor Login</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/font/css/all.min.css">
+	<script src="js/main.js" defer></script>
+</head>
+
+<body>
+	<div class="bg-primary text-white p-3 d-flex justify-content-between">
+		<div class="brand-name d-flex">
+			<img src="images/state.jpeg" width="30" height="30" style="border-radius: 100%;" alt="Logo">
+			<h4 class="mx-2">E-Logbook</h4>
+		</div>
+		<div class="button-group">
+			<button class="loginstudent-button btn btn-outline-light">Login as student</button>
+			<button class="login-admin btn btn-outline-light">Login as admin</button>
+		</div>
+	</div>
+	<div class="container my-5">
+		<div class="row">
+			<div class="col-md-6">
+				<% if(error) {%>
+					<form action="/super" class="my-2 border p-3 rounded" method="post">
+						<div class="my-3">
+							<h5>Supervisor Login</h5>
+						</div>
+						<div class="alert alert-danger">
+							<p>
+								<%= error %>
+							</p>
+						</div>
+						<div class="form-group">
+							<input placeholder="supervisor ID" type="text" name="id" class="form-control">
+						</div>
+						<div class="form-group mt-3">
+							<button type="submit" class="btn btn-primary form-control">Login</button>
+						</div>
+					</form>
+					<%} else {%>
+						<form action="/super" class="my-2 border p-3 rounded" method="post">
+							<div class="my-3">
+								<h5>Supervisor Login</h5>
+							</div>
+							<div class="form-group">
+								<input placeholder="supervisor ID" type="text" name="id" class="form-control">
+							</div>
+							<div class="form-group mt-3">
+								<button type="submit" class="btn btn-primary form-control">Login</button>
+							</div>
+						</form>
+						<%}%>
+			</div>
+			<div class="col-md-6 mt-3">
+							<h1>Portal Instruction</h1>
+							<ol>
+								<li>Enter your Matric number and your password.</li>
+								<li>New members should create account first</li>
+								<li>If you forget your password contact the ADMIN.</li>
+								<li>For all enquires please use the form or call ADMIN on: 08152270373.</li>
+							</ol>
+						</div>
+		</div>
+	</div>
+</body>
+
+</html>

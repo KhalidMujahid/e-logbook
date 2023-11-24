@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supervisor Dashboard </title>
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/font/css/all.min.css">
+  <style>
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-primary align-items-center text-white p-3 d-flex justify-content-between">
+    <div class="brand-name d-flex">
+      <img src="../images/state.jpeg" width="30" height="30" style="border-radius: 100%;" alt="Logo">
+      <h4>Supervisor Dashboard</h4>
+    </div>
+    <div class="button-group">
+      <button class="btn btn-light"><a href="/supervisor-dashboard/<%= id %>">Home <i
+            class="fas fa-home"></i></a></button>
+      <button class="btn btn-light"><a href="/supervisor/send/<%= id %>">Send message <i
+            class="fas fa-box"></i></button>
+      <button class="btn btn-light"><a href="/supervisor/inbox/<%= id %>">Inbox <i
+            class="fas fa-inbox"></i></a></button>
+      <button class="btn btn-danger"><a href="/supervisor-login" class="text-white">Logout <i
+            class="fas fa-power-off"></i></a></button>
+    </div>
+  </div>
+  <div class="container my-3">
+    <h4>My Students</h4>
+  </div>
+  <div class="container">
+    <div class="row">
+      <% students.forEach(student=> {%>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <img src="../images/<%= student.profle_image %>" style="object-fit: cover;" class="card-img" height="300"
+                alt="image">
+              <p><b>Full name</b>: <%= student.fullname %>
+              </p>
+              <p><b>Departement</b>: <%= student.departement %>
+              </p>
+              <p><b>Level</b>: <%= student.level %>
+              </p>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-warning">View <i class="fas fa-eye"></i></button>
+              <button class="btn btn-danger">Delete <i class="fas fa-trash"></i></button>
+            </div>
+          </div>
+        </div>
+        <%})%>
+    </div>
+  </div>
+</body>
+
+</html>
